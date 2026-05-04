@@ -6,7 +6,7 @@ const fs = require("fs");
 const app = express();
 const upload = multer({ dest: "uploads/" });
 
-// make sure folders exist
+// create folders if not exist
 if (!fs.existsSync("uploads")) fs.mkdirSync("uploads");
 if (!fs.existsSync("compressed")) fs.mkdirSync("compressed");
 
@@ -29,7 +29,7 @@ app.post("/upload", upload.single("video"), (req, res) => {
   });
 });
 
-// serve videos
+// serve compressed videos
 app.use("/compressed", express.static("compressed"));
 
 app.listen(3000, () => console.log("Server running"));
