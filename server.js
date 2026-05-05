@@ -24,7 +24,7 @@ app.post("/upload", upload.single("video"), (req, res) => {
     fs.unlinkSync(input);
 
     res.json({
-      url: `https://YOUR-RAILWAY-URL/${output}`
+      url: `https://primfed-video-server-production.up.railway.app/${output}`
     });
   });
 });
